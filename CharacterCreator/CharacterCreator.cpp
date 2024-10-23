@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib> 
+#include <ctime>
 
 using std::cout;
 using std::cin;
@@ -72,6 +74,17 @@ public:
         cout << "Charisma: " << baseScores.charisma << "\n";
     }
 };
+
+abilityScores generateRandomScores() {
+    return abilityScores(
+        std::rand() % 11 + 8,  // Strength
+        std::rand() % 11 + 8,  // Dexterity
+        std::rand() % 11 + 8,  // Constitution
+        std::rand() % 11 + 8,  // Intelligence
+        std::rand() % 11 + 8,  // Wisdom
+        std::rand() % 11 + 8   // Charisma
+    );
+}
 
     // Races
     vector<Race> races = {
@@ -148,35 +161,7 @@ int main()
     }
 
 
-    abilityScores playerScores(0, 0, 0, 0, 0, 0);
-    while (true) {
-        cout << "Enter your ability scores (8-18):\n";
-        cout << "Strength: "; 
-        cin >> playerScores.strength;
-        cout << "Dexterity: "; 
-        cin >> playerScores.dexterity;
-        cout << "Constitution: "; 
-        cin >> playerScores.constitution;
-        cout << "Intelligence: "; 
-        cin >> playerScores.intelligence;
-        cout << "Wisdom: "; 
-        cin >> playerScores.wisdom;
-        cout << "Charisma: "; 
-        cin >> playerScores.charisma;
-
-        // Validate ability scores
-        if (playerScores.strength < 8 || playerScores.strength > 18 ||
-            playerScores.dexterity < 8 || playerScores.dexterity > 18 ||
-            playerScores.constitution < 8 || playerScores.constitution > 18 ||
-            playerScores.intelligence < 8 || playerScores.intelligence > 18 ||
-            playerScores.wisdom < 8 || playerScores.wisdom > 18 ||
-            playerScores.charisma < 8 || playerScores.charisma > 18) {
-            cout << "All ability scores must be between 8 and 18. Please try again.\n";
-        }
-        else {
-            break; // Valid scores, exit the loop
-        }
-    }
+    abilityScores playerScores = generateRandomScores();
 
 
     // Apply race bonuses to base ability scores
