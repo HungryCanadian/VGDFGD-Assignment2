@@ -92,8 +92,27 @@ abilityScores generateRandomScores() {
         { "Elf", 0, 2, 0, 0, 0, 0},
         { "Halfling",0, 2, 0, 0, 0, 0},
         { "Human", 0, 0, 1, 0, 2, 0},
-        { "Gnome", 0, 0, 0, 0, 0, 0},
-        { "Tiefling", 0, 0, 0, 0, 0, 0}
+        { "Gnome", 0, 0, 0, 2, 0, 0},
+        { "Tiefling", 0, 0, 0, 1, 0, 2}
+    };
+
+    vector<string> raceFlavorText = {
+    "Dwarves are stout and hardy. +2 con\n",
+    "Elves are graceful and agile. +2 Dex\n",
+    "Halflings are cheerful and nimble. +2 Dex\n",
+    "Humans are versatile and adaptable. +2 Wis +1 Con\n",
+    "Gnomes are curious and inventive. +2 Int\n",
+    "Tieflings carry the legacy of fiendish ancestry. +2 Cha +1 Int\n"
+    };
+
+    vector<string> classFlavorText = {
+    "Fighters are warriors who have trained extensively in the art of combat.\n",
+    "Paladins are holy warriors dedicated to upholding justice and righteousness.\n",
+    "Druids are guardians of nature, able to harness its power and shape-shift into animals.\n",
+    "Warlocks forge pacts with powerful entities to gain magical abilities.\n",
+    "Sorcerers possess innate magical talent, drawing on their bloodline to unleash powerful spells.\n",
+    "Wizards are scholars of the arcane, dedicating their lives to studying ancient tomes and mastering complex spells.\n"
+    "Rangers are skilled hunters and trackers, adept at surviving in the wild.\n"
     };
     
     vector<Class> charClass = {
@@ -109,8 +128,6 @@ abilityScores generateRandomScores() {
 
 int main()
 {
-    cout << "RPG Character Creator\n";
-    cout << "Welcome to the world of Caspira, Let's get your new character made!\n";
  
     while (true) {
         system("cls");
@@ -141,6 +158,7 @@ int main()
         }
         else {
             chosenRace--; // Adjust for zero being #1
+            cout << "\n" << raceFlavorText[chosenRace] << "\n"; // Display flavor text
             break; // Valid choice, exit the loop
         }
     }
@@ -156,6 +174,7 @@ int main()
         }
         else {
             chosenClass--; // Adjust for zero
+            cout << "\n" << classFlavorText[chosenClass] << "\n"; // Display flavor text
             break; // Valid choice, exit the loop
         }
     }
