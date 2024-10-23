@@ -198,7 +198,7 @@ int main()
     // Create character
     Character playerCharacter(characterName, races[chosenRace], charClass[chosenClass], playerScores);
 
-    cout << "\n\n";
+    cout << "\n";
     playerCharacter.displayStats();
 
     // Ask if they want to create another character
