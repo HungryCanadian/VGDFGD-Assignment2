@@ -51,27 +51,27 @@ struct Race {
 };
 class Character {
 public:
-    string name;
-    Race race;
-    Class type;
-    abilityScores baseScores;
+    string mName;
+    Race mRace;
+    Class mType;
+    abilityScores mBaseScores;
 
     Character(const string& characterName, const Race& characterRace, const Class& characterClass,  const abilityScores& scores)
-        : name(characterName), race(characterRace), type(characterClass), baseScores(scores) {
-        baseScores.applyRaceBonuses(race.abilityIncrease);
+        : mName(characterName), mRace(characterRace), mType(characterClass), mBaseScores(scores) {
+        mBaseScores.applyRaceBonuses(mRace.abilityIncrease);
     }
 
     void displayStats() const {
-        cout << "Character: " << name << "\n";
-        cout << "Race: " << race.name << "\n";
-        cout << "Class: " << type.name << "\n";
+        cout << "Character: " << mName << "\n";
+        cout << "Race: " << mRace.name << "\n";
+        cout << "Class: " << mType.name << "\n";
         cout << "Ability Scores:\n";
-        cout << "Strength: " << baseScores.strength << "\n";
-        cout << "Dexterity: " << baseScores.dexterity << "\n";
-        cout << "Constitution: " << baseScores.constitution << "\n";
-        cout << "Intelligence: " << baseScores.intelligence << "\n";
-        cout << "Wisdom: " << baseScores.wisdom << "\n";
-        cout << "Charisma: " << baseScores.charisma << "\n";
+        cout << "Strength: " << mBaseScores.strength << "\n";
+        cout << "Dexterity: " << mBaseScores.dexterity << "\n";
+        cout << "Constitution: " << mBaseScores.constitution << "\n";
+        cout << "Intelligence: " << mBaseScores.intelligence << "\n";
+        cout << "Wisdom: " << mBaseScores.wisdom << "\n";
+        cout << "Charisma: " << mBaseScores.charisma << "\n";
     }
 };
 
